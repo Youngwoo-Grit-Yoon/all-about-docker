@@ -76,3 +76,11 @@ Server compiled with....
  -D AP_TYPES_CONFIG_FILE="conf/mime.types"
  -D SERVER_CONFIG_FILE="conf/httpd.conf"
 ```
+## 11. MPM 변경
+```text
+(pyenv) [root@bb053394900d ~]# vi /etc/httpd/conf.modules.d/00-mpm.conf
+주석 처리
+LoadModule mpm_event_module modules/mod_mpm_event.so -> #LoadModule mpm_event_module modules/mod_mpm_event.so
+주석 해제
+#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so -> LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+```
