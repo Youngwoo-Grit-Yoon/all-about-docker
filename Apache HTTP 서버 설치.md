@@ -9,16 +9,16 @@
 ```text
 $ docker images
 REPOSITORY                           TAG         IMAGE ID       CREATED         SIZE
-push-base-image   1.0         bcec2791389f   23 months ago   1.01GB
+samsung-securities-push-base-image   1.0         bcec2791389f   23 months ago   1.01GB
 ```
 
 ## 2. 해당 이미지 실행
 ```text
-$ docker run --name apache-http-2.4.58 -d --privileged push-base-image:1.0 /usr/sbin/httpd -D FOREGROUND
+$ docker run --name apache-http-2.4.58 -d --privileged samsung-securities-push-base-image:1.0 /usr/sbin/httpd -D FOREGROUND
 bb053394900d2aaf1998c203ea8160087f6a94d6364552182a0cf548700b8bc4
 $ docker ps
-CONTAINER ID   IMAGE                 COMMAND                  CREATED         STATUS         PORTS     NAMES
-bb053394900d   push-base-image:1.0   "/usr/sbin/httpd -D …"   5 seconds ago   Up 2 seconds             apache-http-2.4.58
+CONTAINER ID   IMAGE                                    COMMAND                  CREATED         STATUS         PORTS     NAMES
+bb053394900d   samsung-securities-push-base-image:1.0   "/usr/sbin/httpd -D …"   5 seconds ago   Up 2 seconds             apache-http-2.4.58
 ```
 
 ## 3. 실행된 컨테이너로 진입
@@ -101,7 +101,7 @@ LoadModule mpm_event_module modules/mod_mpm_event.so -> #LoadModule mpm_event_mo
 
 ## 12. 컨테이너를 통째로 Docker 이미지로 생성
 ```text
-(pyenv) [root@bb053394900d ~]# docker commit apache-http-2.4.58 push-base-image:1.1
+(pyenv) [root@bb053394900d ~]# docker commit apache-http-2.4.58 samsung-securities-push-base-image:1.1
 samsung-securities-push-base-image   1.1         847274438d43   30 seconds ago   1.52GB
 samsung-securities-push-base-image   1.0         bcec2791389f   23 months ago    1.01GB
 ```
@@ -117,4 +117,10 @@ $ docker load -i samsung-securities-push-base-image.tar
 $ docker images
 REPOSITORY                           TAG             IMAGE ID       CREATED             SIZE
 samsung-securities-push-base-image   1.1             847274438d43   2 hours ago         1.52GB
+```
+
+## 15. 기존 Base 이미지 1.0 버전을 사용하던 Dockerfile을 1.1로 수정
+```text
+# Base Image
+FROM samsung-securities-push-base-image:1.1
 ```
