@@ -84,3 +84,7 @@ LoadModule mpm_event_module modules/mod_mpm_event.so -> #LoadModule mpm_event_mo
 주석 해제
 #LoadModule mpm_prefork_module modules/mod_mpm_prefork.so -> LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
 ```
+## 12. 컨테이너를 통째로 Docker 이미지로 생성
+```text
+(pyenv) [root@bb053394900d ~]# docker commit apache-http-2.4.58 push-base-image:1.1
+```
