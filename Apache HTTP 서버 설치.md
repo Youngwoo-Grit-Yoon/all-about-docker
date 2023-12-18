@@ -14,3 +14,17 @@ $ docker ps
 CONTAINER ID   IMAGE                 COMMAND                  CREATED         STATUS         PORTS     NAMES
 bb053394900d   push-base-image:1.0   "/usr/sbin/httpd -D …"   5 seconds ago   Up 2 seconds             apache-http-2.4.58
 ```
+## 3. 실행된 컨테이너로 진입
+```text
+$ docker exec -it apache-http-2.4.58 /bin/bash
+(pyenv) [root@bb053394900d ~]#
+```
+## 4. 기존 HTTPD 설정 파일 백업
+```text
+(pyenv) [root@bb053394900d ~]# cp -arp /etc/httpd /etc/httpd_2.4.58
+```
+## 5. yum epel-release 설치 및 업그레이드
+```text
+(pyenv) [root@bb053394900d ~]# yum install -y epel-release
+(pyenv) [root@bb053394900d ~]# yum update -y 
+```
