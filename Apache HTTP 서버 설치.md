@@ -28,3 +28,51 @@ $ docker exec -it apache-http-2.4.58 /bin/bash
 (pyenv) [root@bb053394900d ~]# yum install -y epel-release
 (pyenv) [root@bb053394900d ~]# yum update -y 
 ```
+## 6. wget 설치
+```text
+(pyenv) [root@bb053394900d ~]# yum install -y wget
+```
+## 7. 새로운 레포지토리 설치
+```text
+(pyenv) [root@bb053394900d ~]# cd /etc/yum.repos.d && wget https://repo.codeit.guru/codeit.el`rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release)`.repo
+```
+## 8. yum으로 다운로드 가능한 httpd 확인
+```text
+(pyenv) [root@bb053394900d ~]# yum list httpd
+```
+<img width="1786" alt="image" src="https://github.com/Youngwoo-Grit-Yoon/all-about-docker/assets/101490683/fd2c4edb-eb14-4b86-afbf-520676726330">
+
+## 9. 설치 진행
+```text
+(pyenv) [root@bb053394900d ~]# yum install -y httpd*
+```
+## 10. 설치된 버전 확인
+```text
+(pyenv) [root@bb053394900d ~]# httpd -V
+Server version: Apache/2.4.58 (codeit)
+Server built:   Oct 19 2023 10:27:37
+Server's Module Magic Number: 20120211:129
+Server loaded:  APR 1.7.4, APR-UTIL 1.6.3, PCRE 10.23 2017-02-14
+Compiled using: APR 1.7.4, APR-UTIL 1.6.3, PCRE 10.23 2017-02-14
+Architecture:   64-bit
+Server MPM:     event
+  threaded:     yes (fixed thread count)
+    forked:     yes (variable process count)
+Server compiled with....
+ -D APR_HAS_SENDFILE
+ -D APR_HAS_MMAP
+ -D APR_HAVE_IPV6 (IPv4-mapped addresses enabled)
+ -D APR_USE_PROC_PTHREAD_SERIALIZE
+ -D APR_USE_PTHREAD_SERIALIZE
+ -D SINGLE_LISTEN_UNSERIALIZED_ACCEPT
+ -D APR_HAS_OTHER_CHILD
+ -D AP_HAVE_RELIABLE_PIPED_LOGS
+ -D DYNAMIC_MODULE_LIMIT=256
+ -D HTTPD_ROOT="/etc/httpd"
+ -D SUEXEC_BIN="/usr/sbin/suexec"
+ -D DEFAULT_PIDLOG="run/httpd.pid"
+ -D DEFAULT_SCOREBOARD="logs/apache_runtime_status"
+ -D DEFAULT_ERRORLOG="logs/error_log"
+ -D AP_TYPES_CONFIG_FILE="conf/mime.types"
+ -D SERVER_CONFIG_FILE="conf/httpd.conf"
+```
