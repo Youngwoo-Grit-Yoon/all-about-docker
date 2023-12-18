@@ -105,3 +105,16 @@ LoadModule mpm_event_module modules/mod_mpm_event.so -> #LoadModule mpm_event_mo
 samsung-securities-push-base-image   1.1         847274438d43   30 seconds ago   1.52GB
 samsung-securities-push-base-image   1.0         bcec2791389f   23 months ago    1.01GB
 ```
+
+## 13. 생성된 이미지를 tar 파일로 생성
+```text
+$ docker save -o samsung-securities-push-base-image.tar samsung-securities-push-base-image:1.1
+```
+
+## 14. tar 파일을 개발계/운영계 장비로 반입하여 Docker 이미지로 로드
+```text
+$ docker load -i samsung-securities-push-base-image.tar
+$ docker images
+REPOSITORY                           TAG             IMAGE ID       CREATED             SIZE
+samsung-securities-push-base-image   1.1             847274438d43   2 hours ago         1.52GB
+```
