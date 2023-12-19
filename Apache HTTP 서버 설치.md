@@ -101,7 +101,7 @@ LoadModule mpm_event_module modules/mod_mpm_event.so -> #LoadModule mpm_event_mo
 
 ## 12. 컨테이너를 통째로 Docker 이미지로 생성
 ```text
-(pyenv) [root@bb053394900d ~]# docker commit apache-http-2.4.58 example-company-push-base-image:1.1
+$ docker commit apache-http-2.4.58 example-company-push-base-image:1.1
 example-company-push-base-image   1.1         847274438d43   30 seconds ago   1.52GB
 example-company-push-base-image   1.0         bcec2791389f   23 months ago    1.01GB
 ```
