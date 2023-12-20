@@ -9,6 +9,5 @@ $ docker run --name tomcat \
 -it --rm \
 -d \
 -p 8888:8080 \
--v /Users/youngwooyoon/YYW/Docker/tomcat/apache-tomcat:/usr/local/tomcat \
 tomcat:9-jdk17-temurin
 ```
